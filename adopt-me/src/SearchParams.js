@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { ANIMALS } from "@frontendmasters/pet";
 
 const SearchParams = () => {
-  // default state of hook (stateful )
+  // default state of hook 
   const [ location, setLocation ] = useState('Oakland, CA');
+  const [ animal, setAnimal ] = useState('Dog');
 
   return (
-    <div>
+    <div className="search-params">
       <form>
         <label htmlFor="location">
           Location
@@ -15,6 +17,19 @@ const SearchParams = () => {
           placeholder="Location" 
           onChange={e => setLocation(e.target.value)}
           />
+        </label>
+        <label htmlFor="animal">
+          Animal
+          <select
+            id="animal"
+            value={animal}
+            onChange={e => setAnimal(e.target.vlaue)}
+            onBlur={e => setAnimal(e.target.vlaue)}>
+            <option>All</option>
+              {ANIMALS.map(animal => (
+                <option value={animal}> {animal} </option>
+              ))}
+          </select>
         </label>
         <button>Submit</button>
       </form>
