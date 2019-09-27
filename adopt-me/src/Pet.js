@@ -15,4 +15,3 @@ export default function Pet({ name, animal, breed }) {
     </div>
   );
 };
-
